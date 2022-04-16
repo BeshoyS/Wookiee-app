@@ -2,12 +2,13 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { Api } from "../Interface/Interfaces";
 
 // type Props = {}
 
 const Search = () => {
-  const [searchInp, setsearchInp] = useState<string | null>("");
-  const [searchData, setsearchData] = useState([]);
+  const [searchInp, setsearchInp] = useState<string>("");
+  const [searchData, setsearchData] = useState<Api[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {

@@ -1,9 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Api } from "../Interface/Interfaces";
 
 type Props = {
   text: string;
-  data: any[];
+  data: Api[];
 };
 
 export default function Row({ data, text }: Props) {

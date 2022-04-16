@@ -1,15 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Api } from "../Interface/Interfaces";
 import Row from "../Row/Row";
 
-// type Props = {}
 
 export default function Home() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Api[]>([]);
   const [genres, setGenres] = useState<string[]>([]);
 
   useEffect(() => {
-    async function getData(/*params:type*/) {
+    async function getData() {
       const { data } = await axios.get("https://wookie.codesubmit.io/movies", {
         headers: {
           Authorization: "Bearer Wookie2021",
@@ -21,14 +21,13 @@ export default function Home() {
     getData();
   }, [data]);
 
-  function getGenres(data: any[]) {
+  function getGenres(data: Api[]) {
     let genresCol: string[] = [];
     data.forEach(({ genres }) => {
       genres.forEach((value: string) => {
         !genresCol.includes(value) && genresCol.push(value);
       });
     });
-    // console.log(genresCol.sort())
     setGenres(genresCol.sort());
   }
 

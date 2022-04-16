@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
+// import { Api } from '../Interface/Interfaces';
 
 // type Props = {}
 
 export default function MovieDetails() {
   const location = useLocation();
-  const [movie]:any[] = useState(location.state)
-  console.log(movie)
+  const [movie] = useState<any>(location.state)
   return (
     <main className='movie-details'>
       <section>
